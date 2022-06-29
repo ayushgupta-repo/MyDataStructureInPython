@@ -21,8 +21,10 @@ def binarySearch(array, value):
         
         middle = math.floor((start+end)/2)
 
+    # if found
     if array[middle] == value:
         return middle
+    #otherwise
     else:
         return -1
 
