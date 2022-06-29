@@ -24,6 +24,19 @@ class Graph:
                 if adjacentVertex not in visited:
                     visited.append(adjacentVertex)
                     queue.append(adjacentVertex)
+    
+    def dfs(self, vertex):
+        visited = [vertex] # for keeping track of visited vertexes
+        stack = [vertex] # for push & pop operations
+
+        while stack: # means while stack is not empty
+            popVertex = stack.pop() # to do pop operation in stack (LIFO)
+            print(popVertex)
+
+            for adjacentVertex in self.gdict[popVertex]:
+                if adjacentVertex not in visited:
+                    visited.append(adjacentVertex) # inserting into visited if not visited 
+                    stack.append(adjacentVertex) # to insert adjancetVertex into stack for further push and pop operation
 
 customDict = {
     'a': ['b', 'c'],
@@ -38,4 +51,5 @@ graph = Graph(customDict)
 # graph.addEdge('e', 'c')
 # print(graph.gdict['e']) # ['d', 'f', 'c']
 
-graph.bfs('a')
+# graph.bfs('a')
+graph.dfs('a')
